@@ -13,12 +13,10 @@ public class UserValidator {
 
         var userId = user.getId();
         if (userId < 4 || userId > 25) {
-            violations.add(
-                    new ConstraintViolationException());
+            violations.add(new ConstraintViolationException());
         }
         if (user.getUsername().length() < 4 || user.getUsername().length() > 8) {
-            violations.add(
-                    new ConstraintViolationException());
+            violations.add(new ConstraintViolationException());
         }
         if (user.getPassword().length() < 6 || user.getPassword().length() > 12) {
             violations.add(
@@ -28,10 +26,21 @@ public class UserValidator {
             violations.add(
                     new ConstraintViolationException());
         }
-
+        if (user.getLastName().length() < 2 || user.getLastName().length() > 10) {
+            violations.add(
+                    new ConstraintViolationException());
+        }
+        if (user.getEmail().length() < 5 || user.getEmail().length() > 15) {
+            violations.add(
+                    new ConstraintViolationException());
+        }
+        if (user.getSports().length() < 4 || user.getSports().length() > 20) {
+            violations.add(
+                    new ConstraintViolationException());
+        }
 
         if (violations.size() > 0) {
-            throw new ConstraintViolationException("Invalid userId field", violations);
+            throw new ConstraintViolationException("Invalid userId login field", violations);
         }
     }
 }

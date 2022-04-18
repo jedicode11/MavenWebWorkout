@@ -9,19 +9,18 @@ import java.util.List;
 public class PlayerValidator {
     public void validate(Player player) throws ConstraintViolationException {
         List<ConstraintViolationException> violations = new ArrayList<>();
-        var titleLength = player.getId();
-        if(titleLength < 4 || titleLength > 50){
+        var playerId = player.getId();
+        if(playerId < 4 || playerId > 50){
             violations.add(
-                    new ConstraintViolationException(
-                    ));
+                    new ConstraintViolationException());
            }
         if(player.getUsername().length() < 4 || player.getUsername().length() < 5){
             violations.add(
-                    new ConstraintViolationException(
-                    ));
+                    new ConstraintViolationException());
         }
+
         if(violations.size() > 0) {
-            throw new ConstraintViolationException("Invalid workout field", violations);
+            throw new ConstraintViolationException("Invalid player attempt field", violations);
         }
     }
 }

@@ -9,6 +9,7 @@ import java.util.List;
 public class WorkoutValidator {
     public void validate(Workout workout) throws ConstraintViolationException {
         List<ConstraintViolationException> violations = new ArrayList<>();
+
         var titleLength = workout.getTitle().trim().length();
         if(titleLength < 4 || titleLength > 50){
             violations.add(
